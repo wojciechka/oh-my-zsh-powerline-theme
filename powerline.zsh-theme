@@ -57,19 +57,19 @@ if [ "$POWERLINE_GIT_DIRTY" = "" ]; then
 fi
 
 if [ "$POWERLINE_GIT_ADDED" = "" ]; then
-  POWERLINE_GIT_ADDED="%F{green}✚%F{black}"
+  POWERLINE_GIT_ADDED="%F{green}✚%F{16}"
 fi
 
 if [ "$POWERLINE_GIT_MODIFIED" = "" ]; then
-  POWERLINE_GIT_MODIFIED="%F{blue}✹%F{black}"
+  POWERLINE_GIT_MODIFIED="%F{blue}✹%F{16}"
 fi
 
 if [ "$POWERLINE_GIT_DELETED" = "" ]; then
-  POWERLINE_GIT_DELETED="%F{red}✖%F{black}"
+  POWERLINE_GIT_DELETED="%F{red}✖%F{16}"
 fi
 
 if [ "$POWERLINE_GIT_UNTRACKED" = "" ]; then
-  POWERLINE_GIT_UNTRACKED="%F{yellow}✭%F{black}"
+  POWERLINE_GIT_UNTRACKED="%F{yellow}✭%F{16}"
 fi
 
 if [ "$POWERLINE_GIT_RENAMED" = "" ]; then
@@ -81,11 +81,11 @@ if [ "$POWERLINE_GIT_UNMERGED" = "" ]; then
 fi
 
 if [ "$POWERLINE_RIGHT_A_COLOR_FRONT" = "" ]; then
-  POWERLINE_RIGHT_A_COLOR_FRONT="white"
+  POWERLINE_RIGHT_A_COLOR_FRONT="231"
 fi
 
 if [ "$POWERLINE_RIGHT_A_COLOR_BACK" = "" ]; then
-  POWERLINE_RIGHT_A_COLOR_BACK="black"
+  POWERLINE_RIGHT_A_COLOR_BACK="16"
 fi
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" \ue0a0 "
@@ -109,17 +109,17 @@ ZSH_THEME_GIT_PROMPT_DIVERGED=" ⬍"
 # else
     if [ "$POWERLINE_SHOW_GIT_ON_RIGHT" = "" ]; then
         if [ "$POWERLINE_HIDE_GIT_PROMPT_STATUS" = "" ]; then
-            POWERLINE_GIT_INFO_LEFT=" %F{blue}%K{white}"$'\ue0b0'"%F{white}%F{black}%K{white}"$'$(git_prompt_info)$(git_prompt_status)%F{white}'
+            POWERLINE_GIT_INFO_LEFT=" %F{blue}%K{231}"$'\ue0b0'"%F{231}%F{231}%K{231}"$'$(git_prompt_info)$(git_prompt_status)%F{231}'
         else
-            POWERLINE_GIT_INFO_LEFT=" %F{blue}%K{white}"$'\ue0b0'"%F{white}%F{black}%K{white}"$'$(git_prompt_info)%F{white}'
+            POWERLINE_GIT_INFO_LEFT=" %F{blue}%K{231}"$'\ue0b0'"%F{231}%F{231}%K{231}"$'$(git_prompt_info)%F{231}'
         fi
         POWERLINE_GIT_INFO_RIGHT=""
     else
         POWERLINE_GIT_INFO_LEFT=""
         if [ "$POWERLINE_HIDE_GIT_PROMPT_STATUS" = "" ]; then
-            POWERLINE_GIT_INFO_RIGHT="%F{white}"$'\ue0b2'"%F{black}%K{white}"$'$(git_prompt_info)$(git_prompt_status)'" %K{white}"
+            POWERLINE_GIT_INFO_RIGHT="%F{231}"$'\ue0b2'"%F{16}%K{231}"$'$(git_prompt_info)$(git_prompt_status)'" %K{231}"
         else
-            POWERLINE_GIT_INFO_RIGHT="%F{white}"$'\ue0b2'"%F{black}%K{white}"$'$(git_prompt_info)'" %K{white}"
+            POWERLINE_GIT_INFO_RIGHT="%F{231}"$'\ue0b2'"%F{16}%K{231}"$'$(git_prompt_info)'" %K{231}"
         fi
     fi
 # fi
@@ -131,12 +131,12 @@ else
     POWERLINE_SEC1_BG=%K{green}
     POWERLINE_SEC1_FG=%F{green}
 fi
-POWERLINE_SEC1_TXT=%F{black}
+POWERLINE_SEC1_TXT=%F{16}
 if [ "$POWERLINE_DETECT_SSH" != "" ]; then
   if [ -n "$SSH_CLIENT" ]; then
     POWERLINE_SEC1_BG=%K{red}
     POWERLINE_SEC1_FG=%F{red}
-    POWERLINE_SEC1_TXT=%F{white}
+    POWERLINE_SEC1_TXT=%F{231}
   fi
 fi
 
@@ -147,7 +147,7 @@ else
     VENV_STATUS=""
 fi
 
-PROMPT="$POWERLINE_SEC1_BG$POWERLINE_SEC1_TXT $POWERLINE_USER_NAME $VENV_STATUS%k%f$POWERLINE_SEC1_FG%K{blue}"$'\ue0b0'"%k%f%F{white}%K{blue} "$POWERLINE_PATH"%F{blue}"$POWERLINE_GIT_INFO_LEFT" %k"$'\ue0b0'"%f "
+PROMPT="$POWERLINE_SEC1_BG$POWERLINE_SEC1_TXT $POWERLINE_USER_NAME $VENV_STATUS%k%f$POWERLINE_SEC1_FG%K{blue}"$'\ue0b0'"%k%f%F{231}%K{blue} "$POWERLINE_PATH"%F{blue}"$POWERLINE_GIT_INFO_LEFT" %k"$'\ue0b0'"%f "
 
 if [ "$POWERLINE_NO_BLANK_LINE" = "" ]; then
     PROMPT="
@@ -156,10 +156,10 @@ fi
 
 if [ "$POWERLINE_DISABLE_RPROMPT" = "" ]; then
     if [ "$POWERLINE_RIGHT_A" = "" ]; then
-        RPROMPT="$POWERLINE_GIT_INFO_RIGHT%F{white}"$'\ue0b2'"%k%F{black}%K{white} $POWERLINE_RIGHT_B %f%k"
+        RPROMPT="$POWERLINE_GIT_INFO_RIGHT%F{231}"$'\ue0b2'"%k%F{16}%K{231} $POWERLINE_RIGHT_B %f%k"
     elif [ "$POWERLINE_RIGHT_B" = "" ]; then
-        RPROMPT="$POWERLINE_GIT_INFO_RIGHT%F{white}"$'\ue0b2'"%k%F{$POWERLINE_RIGHT_A_COLOR_FRONT}%K{$POWERLINE_RIGHT_A_COLOR_BACK} $POWERLINE_RIGHT_A %f%k"
+        RPROMPT="$POWERLINE_GIT_INFO_RIGHT%F{231}"$'\ue0b2'"%k%F{$POWERLINE_RIGHT_A_COLOR_FRONT}%K{$POWERLINE_RIGHT_A_COLOR_BACK} $POWERLINE_RIGHT_A %f%k"
     else
-        RPROMPT="$POWERLINE_GIT_INFO_RIGHT%F{white}"$'\ue0b2'"%k%F{black}%K{white} $POWERLINE_RIGHT_B %f%F{$POWERLINE_RIGHT_A_COLOR_BACK}"$'\ue0b2'"%f%k%K{$POWERLINE_RIGHT_A_COLOR_BACK}%F{$POWERLINE_RIGHT_A_COLOR_FRONT} $POWERLINE_RIGHT_A %f%k"
+        RPROMPT="$POWERLINE_GIT_INFO_RIGHT%F{231}"$'\ue0b2'"%k%F{16}%K{231} $POWERLINE_RIGHT_B %f%F{$POWERLINE_RIGHT_A_COLOR_BACK}"$'\ue0b2'"%f%k%K{$POWERLINE_RIGHT_A_COLOR_BACK}%F{$POWERLINE_RIGHT_A_COLOR_FRONT} $POWERLINE_RIGHT_A %f%k"
     fi
 fi
